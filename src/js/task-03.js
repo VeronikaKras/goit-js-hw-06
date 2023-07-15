@@ -13,18 +13,30 @@ const images = [
   },
 ];
 
+// ВАРІАНТ 1
+// const ulList = document.querySelector('.gallery');
 
-const ulList = document.querySelector('.gallery');
+// const liList = document.createElement('li');
+// for (const {url, alt }  of images) {
+//   const imageEl = document.createElement('img');
+//   imageEl.src = url;
+//   imageEl.alt = alt;
+// liList.appendChild(imageEl);
 
-const liList = document.createElement('li');
-for (const {url, alt }  of images) {
-  const imageEl = document.createElement('img');
-  imageEl.src = url;
-  imageEl.alt = alt;
-liList.appendChild(imageEl);
+// }
+// ulList.appendChild(liList);
 
-}
-ulList.appendChild(liList);
+// console.log(ulList);
 
-console.log(ulList);
+// ВАРІАНТ 2
 
+const ul = document.querySelector(".gallery");
+const markup = images.map((image) => {
+  return `
+    <li>
+      <img src="${image.url}" alt="${image.alt}">
+    </li>
+  `;
+}).join("");
+ul.insertAdjacentHTML("beforeend", markup);
+console.log(ul);
