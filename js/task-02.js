@@ -7,6 +7,18 @@ const ingredients = [
   'Condiments',
 ];
 
+const ulIngredients = document.querySelector(`#ingredients`);
+
+const createEls = (ingredients) => {
+  return ingredients.map((el) => {
+    const ingredient = document.createElement("li");
+    ingredient.textContent = el;
+    ingredient.classList.add("item");
+    return ingredient;
+  });
+};
+const items = createEls(ingredients);
+ulIngredients.append(...items);
 
 // const itemEl = document.createElement('li');
 // itemEl.classList.add('item');
@@ -32,6 +44,6 @@ const ingredients = [
 // }
 // document.body.appendChild(ulEl);
 
-const ul = document.querySelector("#ingredients"); 
-const markup = ingredients.map(ingredient => `<li class="item">${ingredient}</li>`).join("");
-ul.insertAdjacentHTML("beforeend", markup); 
+// const ul = document.querySelector("#ingredients"); 
+// const markup = ingredients.map(ingredient => `<li class="item">${ingredient}</li>`).join("");
+// ul.insertAdjacentHTML("beforeend", markup); 
